@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <title>Birthday</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/all.min.css">
+    <link rel="stylesheet" href="style/fontawesome.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,400;0,600;0,700;1,300&display=swap" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.3/css/fontawesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
+    <body>
+        <div class="container">
+        <div class="row">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <h5>Remaining Time of My Birthday</h5>
+           <p>My Birthdate is <spam>10th October</spam></p>
+           <div class="row">
+               <div class="col-sm-1"></div>
+               <div class="col-sm-10">
+                   <ul>
+                       <li>
+                  <span id="mon"></span>
+                  <p>Months</p>
+                  </li>
+                  <li>
+                  <span id="day"></span>
+                  <p>Days</p>
+                  </li>
+                  <li>
+                  <span id="hour"></span>
+                    <p>Hours</p>
+                  </li>
+                  <li>
+                  <span id="min"></span>
+                  <p>Minutes</p>
+                  </li>
+                  <li>
+                  <span id="sec"></span>
+                  <p>Seconds</p>
+                  </li>
+                  </ul>
+               </div>
+               <div class="col-sm-1"></div>
+           </div>
+           <div class="col-sm-3"></div>
+        </div>
+        </div>
+        </div>
+        <script>
+     function countdown(){
+                var today = new Date();
+                var evenDate = new Date("October 10, 2021");
+                var currentTime = today.getTime();
+                var evenTime = evenDate.getTime();
+                var remTime = evenTime-currentTime;
+                var sec = Math.floor(remTime/1000);
+                var min = Math.floor(sec/60);
+                var hrs = Math.floor(min/60);
+                var days = Math.floor(hrs/24);
+                var mon = Math.floor(days/30);
+                days = days%30;
+                hrs = hrs%24;
+                min%=60;
+                sec%=60;
+                mon = (mon<10)? "0"+mon:mon;
+                days = (days<10) ? "0"+days:days;
+                hrs = (hrs<10) ? "0"+hrs:hrs;
+                 min = (min<10) ? "0"+min:min;
+                 sec = (sec<10) ? "0"+sec:sec;
+                 document.getElementById('mon').innerHTML = mon;
+                document.getElementById('day').innerHTML = days;
+                document.getElementById('hour').innerHTML = hrs;
+                document.getElementById('min').innerHTML = min;
+                document.getElementById('sec').innerHTML = sec;
+                setTimeout(countdown, 1000);
+                
+            }
+            countdown();
+        </script>
+    </body>
+</html>
